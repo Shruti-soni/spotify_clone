@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <script>
+        function fun() { 
+            pat_u1 = /^\w{5,10}$/;
+            pat_p = /\W/;
+            pat_e = /^\w+@\w+(\.\w{2,3})+$/;
+            pat_ph = /^\d{10}$/;
+            u = document.getElementById("u1").value;
+            p = document.getElementById("p1").value;
+            e = document.getElementById("e1").value; 
+            ph = document.getElementById("ph").value; 
+            if (!pat_u1.test(u)) 
+            { alert("Username must contain 5 to 10 characters."); 
+                window.location.href = "sign_in.html"; } 
+            else if (!pat_e.test(e))
+             { alert("enter valid email id"); 
+             window.location.href = "sign_in.html"; }
+            else if (!pat_p.test(p) && (p.length < 8 || p.length > 12)) 
+            { alert("enter valid Password");
+             window.location.href = "sign_in.html"; } 
+            else if (!pat_ph.test(ph)) 
+            { alert("enter valid phone number");
+             window.location.href = "sign_in.html"; } 
+            else { 
+             window.location.href = "xy.html"; } }
+    </script>
+    <style>
+        .box{
+            height:4vh;
+            width:20vw;
+            background-color: black;
+            font-family:monospace;
+            font-size: large;
+            border:2px solid;
+            border-radius:10px;
+            color:rgb(215, 221, 225);
+        }
+
+        lable{
+            font-family:monospace;
+            color:rgb(175, 170, 170);
+            font-size:20px;
+        }
+
+        body{
+            background-color:black ;
+        }
+
+        div{
+            margin-top:10vh;
+            margin-left:28vw;
+            background-color: #1C1F22;
+            border-radius: 20px;
+            height:77vh;
+            width: 45vw;
+        }
+
+        form{
+            margin-top:9vh;
+            margin-left:12vw;
+        }
+
+        h1{
+            padding-top:10vh;
+            margin-left:18vw;
+            color:rgb(198, 193, 193);
+            font-family:monospace;
+            font-weight: bold;
+        }
+
+        .sm{
+            height:5vh;
+            width:5vw;
+            margin-left: 7vw;
+            background-color:white ;
+            color:#1C1F22;
+            font-size: 15px;
+            font-family:monospace;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Sign Up</h1>
+        <form method="#" action="xy.html">
+            <lable>Username:
+                <br>
+                <input type="text" class="box" id="u1" placeholder="Enter Username" required autofocus/>
+            </lable>
+            <br><br>
+            <lable>Email:
+                <br>
+                <input type="email" id="e1" class="box" placeholder="Enter email"required/>
+            </lable>
+            <br><br>
+            <lable >Password:
+                <br>
+                <input type="password" id="p1" class="box" placeholder="Enter Password"required/>
+            </lable>
+            <br><br>
+        
+            <lable>PhoneNo:
+                <br>
+                <input type="number" id="ph" class="box" placeholder="Enter Phone number" required/>
+            </lable>
+            <br><br><br>
+            <button type="submit" class="sm" onclick="fun()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
